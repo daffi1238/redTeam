@@ -7,7 +7,7 @@ install everything to a correct functionality with tor installed.
 
 It was conceibed to be execute like
 
-'{ sudo docker run --name redteam_anon --rm -v "$(pwd)"/anonServices-vol:/anonServices -v "$(pwd)"/torService:/var/lib/tor/ -i -t redteam/anon bash }'
+`{ sudo docker run --name redteam_anon --rm -v "$(pwd)"/anonServices-vol:/anonServices -v "$(pwd)"/torService:/var/lib/tor/ -i -t redteam/anon bash }´
 
 Sharing the volumen with the anonServices-vol, where a web service could be found  or file to share through ftp, and /var/lib/tor/ from the container \
 where we can find the onion url to access the service
