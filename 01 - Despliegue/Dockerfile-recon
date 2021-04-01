@@ -15,6 +15,15 @@ FROM debian:latest AS base
                         libtool apt-utils openssh-server openssl build-essential \
                         libpcap-dev libpq-dev libsqlite3-dev libsqlite3-dev libsqlite3-0
 
+#Install conda
+#conda create -n py27 python=2.7
+#conda create -n py39 python=3.9
+#Falta instalar Anaconda
+
+RUN ${WORKDIR}  && wget https://repo.anaconda.com/archive/Anaconda3-2020.11-Linux-x86_64.sh \
+                && chmod +x Anaconda3-2020.11-Linux-x86_64.sh \
+
+
 
 	#Clone repositories from recon-ng, photon, theHarvester and MaliciousMacroGenerator
 	RUN ${WORKDIR} && git clone https://github.com/lanmaster53/recon-ng.git \
@@ -23,4 +32,12 @@ FROM debian:latest AS base
                     && git clone https://github.com/smicallef/spiderfoot \
                     && git clone https://github.com/laramies/theHarvester \
                     && git clone https://github.com/Mr-Un1k0d3r/MaliciousMacroGenerator \
-                    && git clone https://github.com/smicallef/spiderfoot
+                    && git clone https://github.com/Greenwolf/social_mapper \
+                    && git clone https://github.com/xillwillx/skiptracer \
+                    && git clone https://github.com/laramies/metagoofil \
+                    && git clone https://github.com/FortyNorthSecurity/Just-Metadata \
+                    && git clone https://github.com/metac0rtex/GitHarvester \
+                    && git clone https://github.com/m8r0wn/CrossLinked \
+                    && git clone https://github.com/FortyNorthSecurity/EyeWitness \
+                    && git clone https://github.com/1N3/Sn1per \
+                    && git clone https://github.com/OWASP/Amass

@@ -1,5 +1,0 @@
-#############Custom  Aliases for hacking#############
-
-ControlPort 9051
-HiddenServiceDir /redteam
-HiddenServicePort 80 127.0.0.1:8080
