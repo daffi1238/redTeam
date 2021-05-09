@@ -19,7 +19,8 @@ if [[ -f /etc/tor/torrc ]]
     rm /etc/tor/torrc
     cp torrc.aux /etc/tor/torrc
 
-    chown /var/lib/tor debian-tor:debian-tor
+    chown debian-tor:debian-tor /var/lib/tor
+    chown -R debian-tor:debian-tor /var/lib/tor/
 
     service tor start
 

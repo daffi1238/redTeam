@@ -1,0 +1,43 @@
+#For building: sudo docker build -t redteam/recon:latest -f Dockerfile-recon .
+#For execute: sudo docker run --name redteam_recon --rm -i -t redteam/recon bash
+
+FROM debian:latest AS base
+	LABEL author="daffi1238"
+	LABEL description="Simple Red Team image for recognice a victim."
+	ENV WORKDIR_ENV=/redteam_recon
+	WORKDIR ${WORKDIR_ENV}
+	SHELL ["/bin/bash", "-c"]
+
+  RUN apt-get update && apt-get -y install apt-utils net-tools netcat \
+                        python3 python3-dev python3-pip unzip wget curl \
+                        git gcc libc-dev libxslt-dev libevent-dev libssl-dev \
+                        zlib1g zlib1g-dev firefox-esr xfce4-terminal autoconf automake \
+                        libtool apt-utils openssh-server openssl build-essential \
+                        libpcap-dev libpq-dev libsqlite3-dev libsqlite3-dev libsqlite3-0
+
+#Install conda
+#conda create -n py27 python=2.7
+#conda create -n py39 python=3.9
+#Falta instalar Anaconda
+
+RUN ${WORKDIR}  && wget https://repo.anaconda.com/archive/Anaconda3-2020.11-Linux-x86_64.sh \
+                && chmod +x Anaconda3-2020.11-Linux-x86_64.sh \
+
+
+
+	#Clone repositories from recon-ng, photon, theHarvester and MaliciousMacroGenerator
+	RUN ${WORKDIR} && git clone https://github.com/lanmaster53/recon-ng.git \
+                    && git clone https://github.com/sundowndev/PhoneInfoga \
+                    && git clone https://github.com/s0md3v/Photon \
+                    && git clone https://github.com/smicallef/spiderfoot \
+                    && git clone https://github.com/laramies/theHarvester \
+                    && git clone https://github.com/Mr-Un1k0d3r/MaliciousMacroGenerator \
+                    && git clone https://github.com/Greenwolf/social_mapper \
+                    && git clone https://github.com/xillwillx/skiptracer \
+                    && git clone https://github.com/laramies/metagoofil \
+                    && git clone https://github.com/FortyNorthSecurity/Just-Metadata \
+                    && git clone https://github.com/metac0rtex/GitHarvester \
+                    && git clone https://github.com/m8r0wn/CrossLinked \
+                    && git clone https://github.com/FortyNorthSecurity/EyeWitness \
+                    && git clone https://github.com/1N3/Sn1per \
+                    && git clone https://github.com/OWASP/Amass

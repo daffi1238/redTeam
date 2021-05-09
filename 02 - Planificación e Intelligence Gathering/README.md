@@ -1,5 +1,6 @@
 # redTeam
 Voy a desarrollar un documento con una buena metodología de reconocimiento aplicando todas las técnicas que se me ocurran y las comprobaciones mínima que deberemos hacer.
+The next container will contain the specifics tools for recognize a target 
 
 ##Google Hacking
 https://www.exploit-db.com/google-hacking-database
