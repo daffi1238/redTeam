@@ -8,15 +8,13 @@ install everything to a correct functionality with tor installed.
 It was conceibed to be execute like
 
 ```
-sudo docker run --name redteam_anon --rm -v "$(pwd)"/anonServices-vol:/anonServices -v "$(pwd)"/torService:/var/lib/tor/ -i -t redteam/anon bash
+sudo docker run --name redteam_anon --rm -v "$(pwd)"/anonServices-vol:/anonServices -v "$(pwd)"/torService:/var/lib/tor/ -v "$(pwd)"/tor-conf:/etc/tor -i -t redteam/anon bash
 ```
 
-Sharing the volumen with the anonServices-vol, where a web service could be found  or file to share through ftp, and /var/lib/tor/ from the container \
-where we can find the onion url to access the service
+And inside the container we have to go to the path '/anonServices/webServer' and exec `$python3 -m http.server 80`
 
+After that going into the url given by the hostname file. For private use remember chance the hostname and both keys, for that you can follow the manual describe in https://null-byte.wonderhowto.com/how-to/host-your-own-tor-hidden-service-with-custom-onion-address-0180159/
 
-in anonServices-vol we can find a script that will copy the tor configuration in torrc.aux to torrc, restart the tor service and start a web service with \
-python in the folder webService of the project.
 
 
 ## Anonimimate the traffic in the host using the tor-container
