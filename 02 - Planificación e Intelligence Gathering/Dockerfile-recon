@@ -13,7 +13,8 @@ FROM debian:latest AS base
                         git gcc libc-dev libxslt-dev libevent-dev libssl-dev \
                         zlib1g zlib1g-dev firefox-esr xfce4-terminal autoconf automake \
                         libtool apt-utils openssh-server openssl build-essential \
-                        libpcap-dev libpq-dev libsqlite3-dev libsqlite3-dev libsqlite3-0
+                        libpcap-dev libpq-dev libsqlite3-dev libsqlite3-dev libsqlite3-0 \
+                        golang python python-dev python-pip
 
 #Install conda
 #conda create -n py27 python=2.7
@@ -28,12 +29,14 @@ RUN ${WORKDIR}  && wget https://repo.anaconda.com/archive/Anaconda3-2020.11-Linu
 	#Clone repositories from recon-ng, photon, theHarvester and MaliciousMacroGenerator
 	RUN ${WORKDIR} && git clone https://github.com/lanmaster53/recon-ng.git \
                     && git clone https://github.com/sundowndev/PhoneInfoga \
+                    && curl -sSL -o /usr/bin/ https://raw.githubusercontent.com/sundowndev/phoneinfoga/master/support/scripts/install | bash \
+                    && mv ./phoneinfoga /usr/bin/phoneinfoga \
                     && git clone https://github.com/s0md3v/Photon \
                     && git clone https://github.com/smicallef/spiderfoot \
                     && git clone https://github.com/laramies/theHarvester \
                     && git clone https://github.com/Mr-Un1k0d3r/MaliciousMacroGenerator \
                     && git clone https://github.com/Greenwolf/social_mapper \
-                    && git clone https://github.com/xillwillx/skiptracer \
+                    && git clone https://gitlab.com/illwill/skiptracer \
                     && git clone https://github.com/laramies/metagoofil \
                     && git clone https://github.com/FortyNorthSecurity/Just-Metadata \
                     && git clone https://github.com/metac0rtex/GitHarvester \
