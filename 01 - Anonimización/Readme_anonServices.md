@@ -5,8 +5,11 @@ There several containers, each one with a particular propose.
 Dockerfile-anon is a image to desgined to share any content or service you could need using tor network. In first place \
 install everything to a correct functionality with tor installed.
 
+To build image
+```
+sudo docker build -t redteam/anon:latest -f Dockerfile-anon .
+```
 It was conceibed to be execute like
-
 ```
 sudo docker run --name redteam_anon --rm -v "$(pwd)"/anonServices-vol:/anonServices -v "$(pwd)"/torService:/var/lib/tor/ -v "$(pwd)"/tor-conf:/etc/tor --network=host -i -t redteam/anon bash
 ```

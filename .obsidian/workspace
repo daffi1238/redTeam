@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "02 - Planificación e Intelligence Gathering/README.md",
+            "file": "02 - Planificación e Intelligence Gathering/README-recon.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "02 - Planificación e Intelligence Gathering/README.md",
+                "file": "02 - Planificación e Intelligence Gathering/README-recon.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,6 +88,8 @@
   },
   "active": "728440aaa02ba0bb",
   "lastOpenFiles": [
+    "02 - Planificación e Intelligence Gathering/README-recon.md",
+    "01 - Anonimización/Readme_anonServices.md",
     "02 - Planificación e Intelligence Gathering/README.md",
     "01 - Anonimización/Readme.md",
     "01 - Despliegue/Readme.md",
